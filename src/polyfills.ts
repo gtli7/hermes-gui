@@ -49,7 +49,7 @@ import '@angular/localize/init';
 /***************************************************************************************************
  * Zone JS is no longer required - using zoneless change detection.
  */
-import 'zone.js';  // Included with Angular CLI.
+// import 'zone.js';  // Removed for zoneless change detection
 
 
 /***************************************************************************************************

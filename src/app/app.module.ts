@@ -113,9 +113,9 @@ registerLocaleData(localeEs);
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        Ng2SearchPipeModule,
-        AngularFileUploaderModule,
-        NgSelectModule,
+        // Ng2SearchPipeModule, // TODO: Replace with Angular 18 compatible search pipe
+        // AngularFileUploaderModule, // TODO: Replace with Angular 18 compatible file uploader
+        // NgSelectModule, // TODO: Update to Angular 18 compatible version
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: Boolean(GlobalConstants.production),
             // Register the ServiceWorker as soon as the application is stable
