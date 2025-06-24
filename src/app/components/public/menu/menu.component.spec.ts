@@ -31,7 +31,9 @@ describe('CustomErrorsComponent', () => {
     };
     
     const mockUtilsService = {
-      formatDate: (date: any) => date
+      formatDate: (date: any) => date,
+      isItRuningLocal: () => false,
+      isSBitxRadio: () => false
     };
 
     await TestBed.configureTestingModule({
