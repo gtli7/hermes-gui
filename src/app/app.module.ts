@@ -7,7 +7,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MessagesComponent } from './components/public/messages/messages.component';
 import { MessageDetailComponent } from './components/public/message-detail/message-detail.component';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { LogComponent } from './components/admin/log/log.component';
 import { StationInformationComponent } from './components/admin/station-information/station-information.component';
 import { UserManagementComponent } from './components/admin/user-management/user-management.component';
@@ -66,77 +66,70 @@ registerLocaleData(localePt);
 registerLocaleData(localeEs);
 //TODO - Missing localeSag
 
-@NgModule({
-  exports: [
-    CommonModule
-  ],
-  declarations: [
-    AppComponent,
-    homeComponent,
-    MessagesComponent,
-    MessageDetailComponent,
-    LogComponent,
-    StationInformationComponent,
-    UserManagementComponent,
-    MessagecomposeComponent,
-    LoginComponent,
-    LanguagesComponent,
-    MessageConfigComponent,
-    SameUsernameDirective,
-    RetypeDirective,
-    SentMessagesComponent,
-    UserExistDirective,
-    EmailComponent,
-    RadioConfigComponent,
-    FrequencyPipe,
-    ScheduleComponent,
-    TransmissionListComponent,
-    LoadingComponent,
-    SwitchComponent,
-    PlayerComponent,
-    RecorderComponent,
-    MenuComponent,
-    WiFiManagementComponent,
-    VoiceComponent,
-    BreadcrumbComponent,
-    FloatButtonComponent,
-    HintComponent,
-    GPSComponent,
-    SMSComponent,
-    SMSChatComponent,
-    OperatorComponent,
-    XYGraphComponent,
-    ClockHandGraphComponent,
-    MapGraphComponent,
-    ProgressBarComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    Ng2SearchPipeModule,
-    AngularFileUploaderModule,
-    NgSelectModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: Boolean(GlobalConstants.production), 
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
-    
-    NgIdleKeepaliveModule.forRoot()
-  ],
-  providers: [
-    DecimalPipe,
-    { provide: LOCALE_ID, useValue: 'pt' },
-    { provide: LOCALE_ID, useValue: 'es' },
-    { provide: LOCALE_ID, useValue: 'fr' },
-    { provide: LOCALE_ID, useValue: 'sag' },
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ exports: [
+        CommonModule
+    ],
+    declarations: [
+        AppComponent,
+        homeComponent,
+        MessagesComponent,
+        MessageDetailComponent,
+        LogComponent,
+        StationInformationComponent,
+        UserManagementComponent,
+        MessagecomposeComponent,
+        LoginComponent,
+        LanguagesComponent,
+        MessageConfigComponent,
+        SameUsernameDirective,
+        RetypeDirective,
+        SentMessagesComponent,
+        UserExistDirective,
+        EmailComponent,
+        RadioConfigComponent,
+        FrequencyPipe,
+        ScheduleComponent,
+        TransmissionListComponent,
+        LoadingComponent,
+        SwitchComponent,
+        PlayerComponent,
+        RecorderComponent,
+        MenuComponent,
+        WiFiManagementComponent,
+        VoiceComponent,
+        BreadcrumbComponent,
+        FloatButtonComponent,
+        HintComponent,
+        GPSComponent,
+        SMSComponent,
+        SMSChatComponent,
+        OperatorComponent,
+        XYGraphComponent,
+        ClockHandGraphComponent,
+        MapGraphComponent,
+        ProgressBarComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        // Ng2SearchPipeModule, // TODO: Replace with Angular 18 compatible search pipe
+        // AngularFileUploaderModule, // TODO: Replace with Angular 18 compatible file uploader
+        // NgSelectModule, // TODO: Update to Angular 18 compatible version
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: Boolean(GlobalConstants.production),
+            // Register the ServiceWorker as soon as the application is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:30000'
+        }),
+        NgIdleKeepaliveModule.forRoot()], providers: [
+        DecimalPipe,
+        { provide: LOCALE_ID, useValue: 'pt' },
+        { provide: LOCALE_ID, useValue: 'es' },
+        { provide: LOCALE_ID, useValue: 'fr' },
+        { provide: LOCALE_ID, useValue: 'sag' },
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { OperatorComponent } from './operator.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from '../../utils/loading/loading.component';
 import { HintComponent } from '../../utils/hint/hint.component';
@@ -15,9 +15,10 @@ describe('OperatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OperatorComponent, LoadingComponent, HintComponent, ProgressBarComponent, ClockHandGraphComponent, XYGraphComponent, MapGraphComponent ],
-      imports: [ HttpClientModule, FormsModule ]
-    })
+    declarations: [OperatorComponent, LoadingComponent, HintComponent, ProgressBarComponent, ClockHandGraphComponent, XYGraphComponent, MapGraphComponent],
+    imports: [FormsModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
   });
 

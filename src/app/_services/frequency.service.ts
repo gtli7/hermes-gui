@@ -56,7 +56,7 @@ export class FrequencyService {
 
   private handleError(error: HttpErrorResponse) {
     this.frequency = [];
-    return throwError(error);
+    return throwError(() => error);
   }
 
 }

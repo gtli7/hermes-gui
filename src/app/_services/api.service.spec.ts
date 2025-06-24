@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing'
 import { ApiService } from './api.service'
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing'
+import { HttpClient, HttpErrorResponse, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { GlobalConstants } from '../global-constants';
 import { Schedule } from '../interfaces/schedule'
 
@@ -17,13 +17,13 @@ describe('ApiService', () => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000000
 
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [
-        ApiService
-      ]
-    })
+    imports: [],
+    providers: [
+        ApiService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     service = TestBed.inject(ApiService)
     http = TestBed.inject(HttpClient)
     httpMock = TestBed.inject(HttpTestingController)

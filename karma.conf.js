@@ -27,7 +27,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadlessNoSandbox'],
+    browsers: ['FirefoxHeadless'],
     browserDisconnectTimeout: 20000,
     browserDisconnectTolerance: 3,
     browserNoActivityTimeout: 120000,
@@ -35,7 +35,7 @@ module.exports = function (config) {
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        binary: '/opt/chrome-131/chrome',
+        binary: '/home/ubuntu/.local/bin/google-chrome',
         flags: [
           '--no-sandbox',
           '--disable-web-security',
@@ -44,7 +44,8 @@ module.exports = function (config) {
           '--disable-dev-shm-usage',
           '--disable-background-timer-throttling',
           '--disable-backgrounding-occluded-windows',
-          '--disable-renderer-backgrounding'
+          '--disable-renderer-backgrounding',
+          '--remote-debugging-port=9222'
         ]
       }
     },

@@ -135,7 +135,7 @@ export class GPSService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    return throwError(error);
+    return throwError(() => error);
   }
 }
 

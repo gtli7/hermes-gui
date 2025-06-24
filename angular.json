@@ -24,12 +24,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/hermes",
+            "outputPath": {
+              "base": "dist/hermes"
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "src/polyfills.ts"
+            ],
             "tsConfig": "tsconfig.app.json",
             "localize": false,
             "assets": [
@@ -43,20 +46,18 @@
             "scripts": [
               "./node_modules/angular-dark-mode/angular-dark-mode.js"
             ],
-            "vendorChunk": true,
             "extractLicenses": false,
             "aot": true,
-            "buildOptimizer": true,
             "sourceMap": true,
             "optimization": true,
             "namedChunks": true,
-            "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json",
+            "serviceWorker": "ngsw-config.json",
             "allowedCommonJsDependencies": [
               "rxjs/internal/Subject",
               "polylabel",
               "recordrtc"
-            ]
+            ],
+            "browser": "src/main.ts"
           },
           "configurations": {
             "production": {
@@ -65,9 +66,7 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
               "aot": true,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -90,9 +89,7 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
               "aot": true,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -115,9 +112,7 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
               "aot": true,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -141,7 +136,6 @@
               "namedChunks": false,
               "statsJson": false,
               "progress": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -164,9 +158,7 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
               "aot": true,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -189,9 +181,7 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
               "aot": true,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -211,34 +201,34 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "hermes:build",
-            "proxyConfig": "src/proxy.conf.json"
+            "proxyConfig": "src/proxy.conf.json",
+            "buildTarget": "hermes:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "hermes:build:production"
+              "buildTarget": "hermes:build:production"
             },
             "pt": {
-              "browserTarget": "hermes:build:pt"
+              "buildTarget": "hermes:build:pt"
             },
             "es": {
-              "browserTarget": "hermes:build:es"
+              "buildTarget": "hermes:build:es"
             },
             "en": {
-              "browserTarget": "hermes:build:en"
+              "buildTarget": "hermes:build:en"
             },
             "fr": {
-              "browserTarget": "hermes:build:fr"
+              "buildTarget": "hermes:build:fr"
             },
             "ar": {
-              "browserTarget": "hermes:build:ar"
+              "buildTarget": "hermes:build:ar"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "hermes:build"
+            "buildTarget": "hermes:build"
           }
         },
         "test": {
@@ -318,7 +308,6 @@
   },
   "cli": {
     "analytics": false,
-    "defaultCollection": "@angular-eslint/schematics",
     "schematicCollections": [
       "@cypress/schematic",
       "@schematics/angular"

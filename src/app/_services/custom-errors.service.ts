@@ -59,7 +59,7 @@ export class CustomErrorsService {
 
   private handleError(error: HttpErrorResponse) {
     this.customErrors = [];
-    return throwError(error);
+    return throwError(() => error);
   }
 
 }

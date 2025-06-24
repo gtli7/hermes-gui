@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MenuComponent } from './menu.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { SharedService } from '../../../_services/shared.service';
@@ -38,19 +38,18 @@ describe('CustomErrorsComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      declarations: [MenuComponent, LoadingComponent],
-      imports: [
-        RouterTestingModule,
-        HttpClientModule,
+    declarations: [MenuComponent, LoadingComponent],
+    imports: [RouterTestingModule,
         ReactiveFormsModule,
         FormsModule],
-      providers: [
+    providers: [
         { provide: AuthenticationService, useValue: mockAuthService },
         { provide: SharedService, useValue: mockSharedService },
         { provide: WebsocketService, useValue: mockWebsocketService },
-        { provide: UtilsService, useValue: mockUtilsService }
-      ]
-    })
+        { provide: UtilsService, useValue: mockUtilsService },
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
       .compileComponents();
   });
 

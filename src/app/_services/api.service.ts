@@ -206,7 +206,7 @@ export class ApiService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    return throwError(error);
+    return throwError(() => error);
   }
 }
 
