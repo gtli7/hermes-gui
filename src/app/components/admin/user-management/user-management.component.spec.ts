@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserManagementComponent } from './user-management.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from '../../utils/loading/loading.component';
 import { HintComponent } from '../../utils/hint/hint.component';
@@ -11,9 +11,10 @@ describe('UserManagementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UserManagementComponent, LoadingComponent, HintComponent],
-      imports: [HttpClientModule, FormsModule]
-    })
+    declarations: [UserManagementComponent, LoadingComponent, HintComponent],
+    imports: [FormsModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
       .compileComponents();
   });
 

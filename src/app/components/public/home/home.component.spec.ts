@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { homeComponent } from './home.component';
 import { WebsocketService } from '../../../_services/websocket.service';
 
@@ -15,12 +15,13 @@ describe('homeComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      declarations: [ homeComponent ],
-      imports: [ HttpClientModule ],
-      providers: [
-        { provide: WebsocketService, useValue: mockWebsocketService }
-      ]
-    })
+    declarations: [homeComponent],
+    imports: [],
+    providers: [
+        { provide: WebsocketService, useValue: mockWebsocketService },
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
     .compileComponents();
   });
 

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StationInformationComponent } from './station-information.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from '../../utils/loading/loading.component';
 import { HintComponent } from '../../utils/hint/hint.component';
@@ -17,12 +17,13 @@ describe('NetadminComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      declarations: [StationInformationComponent, LoadingComponent, HintComponent],
-      imports: [HttpClientModule, FormsModule],
-      providers: [
-        { provide: AuthenticationService, useValue: mockAuthService }
-      ]
-    })
+    declarations: [StationInformationComponent, LoadingComponent, HintComponent],
+    imports: [FormsModule],
+    providers: [
+        { provide: AuthenticationService, useValue: mockAuthService },
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
       .compileComponents();
   });
 
