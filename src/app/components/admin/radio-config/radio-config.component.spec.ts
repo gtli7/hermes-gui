@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from '../../utils/loading/loading.component';
 import { HintComponent } from '../../utils/hint/hint.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('RadioConfigComponent', () => {
   let component: RadioConfigComponent;
@@ -12,7 +13,8 @@ describe('RadioConfigComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [RadioConfigComponent, LoadingComponent, HintComponent],
-      imports: [HttpClientModule, FormsModule]
+      imports: [HttpClientModule, FormsModule],
+      schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();
   });
