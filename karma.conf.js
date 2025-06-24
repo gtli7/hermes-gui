@@ -8,7 +8,6 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
-      require('karma-firefox-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
@@ -28,7 +27,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Firefox'],
+    browsers: ['ChromeHeadlessNoSandbox'],
     browserDisconnectTimeout: 20000,
     browserDisconnectTolerance: 3,
     browserNoActivityTimeout: 120000,
@@ -36,13 +35,17 @@ module.exports = function (config) {
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        binary: '/home/ubuntu/.local/bin/google-chrome',
+        binary: '/opt/.devin/chrome/chrome/linux-137.0.7118.2/chrome-linux64/chrome',
         flags: [
           '--no-sandbox',
+          '--disable-web-security',
+          '--disable-features=VizDisplayCompositor',
           '--disable-gpu',
           '--disable-dev-shm-usage',
-          '--disable-web-security',
-          '--disable-features=VizDisplayCompositor'
+          '--disable-background-timer-throttling',
+          '--disable-backgrounding-occluded-windows',
+          '--disable-renderer-backgrounding',
+          '--remote-debugging-port=9222'
         ]
       }
     },
