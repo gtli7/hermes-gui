@@ -20,7 +20,17 @@ describe('AppComponent', () => {
         AppComponent
       ],
       providers: [
-        { provide: Idle, useValue: { watch: () => {}, stop: () => {} } }
+        { provide: Idle, useValue: { 
+          watch: () => {}, 
+          stop: () => {},
+          setIdle: () => {},
+          setTimeout: () => {},
+          setInterrupts: () => {},
+          onIdleEnd: { subscribe: () => {} },
+          onTimeout: { subscribe: () => {} },
+          onIdleStart: { subscribe: () => {} },
+          onTimeoutWarning: { subscribe: () => {} }
+        } }
       ]
     }).compileComponents();
 
