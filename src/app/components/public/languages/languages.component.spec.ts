@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LanguagesComponent } from './languages.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 describe('LanguagesComponent', () => {
   let component: LanguagesComponent;
@@ -8,8 +11,8 @@ describe('LanguagesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LanguagesComponent],
-      imports: [HttpClientModule]
+      declarations: [LanguagesComponent, LoadingComponent, HintComponent],
+      imports: [HttpClientModule, FormsModule]
     })
       .compileComponents();
   });
