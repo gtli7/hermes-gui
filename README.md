@@ -2,6 +2,8 @@
 
 This project is a friendly user interface for HERMES - High-frequency Emergency and Rural Multimedia Exchange System. Telecommunications system that provides digital telecommunications. It's being developed by [Rhizomatica](https://www.rhizomatica.org/).
 
+<!-- Verification comment added by Devin to test repository access and workflow -->
+
 ![HERMES-GUI Home Screenshot](/src/assets/img/hermes-gui-home-readme.png)
 
 
