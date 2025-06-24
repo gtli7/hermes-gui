@@ -64,7 +64,7 @@ export class UserService {
 
   private handleError(error: HttpErrorResponse) {
     this.users = [];
-    return throwError(error);
+    return throwError(() => error);
   }
 
 }

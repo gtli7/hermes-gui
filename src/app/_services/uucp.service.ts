@@ -88,7 +88,7 @@ export class UUCPService {
 
   private handleError(error: HttpErrorResponse) {
     this.queue = [];
-    return throwError(error);
+    return throwError(() => error);
   }
 
 }

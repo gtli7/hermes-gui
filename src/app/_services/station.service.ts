@@ -30,6 +30,6 @@ export class StationService {
 
   private handleError(error: HttpErrorResponse) {
     this.stations = [];
-    return throwError(error);
+    return throwError(() => error);
   }
 }

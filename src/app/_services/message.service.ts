@@ -123,7 +123,7 @@ export class MessageService {
 
   private handleError(error: HttpErrorResponse) {
     this.message = [];
-    return throwError(error);
+    return throwError(() => error);
   }
 }
 
