@@ -211,34 +211,34 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "hermes:build",
-            "proxyConfig": "src/proxy.conf.json"
+            "proxyConfig": "src/proxy.conf.json",
+            "buildTarget": "hermes:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "hermes:build:production"
+              "buildTarget": "hermes:build:production"
             },
             "pt": {
-              "browserTarget": "hermes:build:pt"
+              "buildTarget": "hermes:build:pt"
             },
             "es": {
-              "browserTarget": "hermes:build:es"
+              "buildTarget": "hermes:build:es"
             },
             "en": {
-              "browserTarget": "hermes:build:en"
+              "buildTarget": "hermes:build:en"
             },
             "fr": {
-              "browserTarget": "hermes:build:fr"
+              "buildTarget": "hermes:build:fr"
             },
             "ar": {
-              "browserTarget": "hermes:build:ar"
+              "buildTarget": "hermes:build:ar"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "hermes:build"
+            "buildTarget": "hermes:build"
           }
         },
         "test": {
