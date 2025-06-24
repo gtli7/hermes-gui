@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SentMessagesComponent } from './sent-messages.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 describe('SentMessagesComponent', () => {
   let component: SentMessagesComponent;
@@ -8,8 +11,8 @@ describe('SentMessagesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SentMessagesComponent ],
-      imports: [HttpClientModule]
+      declarations: [ SentMessagesComponent, LoadingComponent, HintComponent ],
+      imports: [HttpClientModule, FormsModule]
     })
     .compileComponents();
   });

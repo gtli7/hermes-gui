@@ -27,8 +27,24 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
+    browsers: ['ChromeHeadlessNoSandbox'],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        binary: '/opt/.devin/chrome/chrome/linux-137.0.7118.2/chrome-linux64/chrome',
+        flags: [
+          '--no-sandbox',
+          '--disable-web-security',
+          '--disable-features=VizDisplayCompositor',
+          '--disable-gpu',
+          '--disable-dev-shm-usage',
+          '--disable-background-timer-throttling',
+          '--disable-backgrounding-occluded-windows',
+          '--disable-renderer-backgrounding'
+        ]
+      }
+    },
+    singleRun: true,
     restartOnFileChange: true
   });
 };

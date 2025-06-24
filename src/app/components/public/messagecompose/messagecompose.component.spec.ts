@@ -2,6 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MessagecomposeComponent } from './messagecompose.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from "@angular/router/testing";
+import { FormsModule } from '@angular/forms';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 describe('MessagecomposeComponent', () => {
   let component: MessagecomposeComponent;
@@ -9,10 +12,11 @@ describe('MessagecomposeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MessagecomposeComponent ],
+      declarations: [ MessagecomposeComponent, LoadingComponent, HintComponent ],
       imports: [
         RouterTestingModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule
       ]    
     })
     .compileComponents();
