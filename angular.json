@@ -318,7 +318,6 @@
   },
   "cli": {
     "analytics": false,
-    "defaultCollection": "@angular-eslint/schematics",
     "schematicCollections": [
       "@cypress/schematic",
       "@schematics/angular"
