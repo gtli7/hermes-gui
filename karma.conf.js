@@ -35,7 +35,7 @@ module.exports = function (config) {
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        binary: '/opt/.devin/chrome/chrome/linux-137.0.7118.2/chrome-linux64/chrome',
+        binary: '/opt/chrome-131/chrome',
         flags: [
           '--no-sandbox',
           '--disable-web-security',
