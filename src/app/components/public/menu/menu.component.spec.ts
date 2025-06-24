@@ -7,6 +7,7 @@ import { AuthenticationService } from '../../../_services/authentication.service
 import { SharedService } from '../../../_services/shared.service';
 import { WebsocketService } from '../../../_services/websocket.service';
 import { UtilsService } from '../../../_services/utils.service';
+import { LoadingComponent } from '../../utils/loading/loading.component';
 import { of, BehaviorSubject } from 'rxjs';
 
 describe('CustomErrorsComponent', () => {
@@ -37,7 +38,7 @@ describe('CustomErrorsComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      declarations: [MenuComponent],
+      declarations: [MenuComponent, LoadingComponent],
       imports: [
         RouterTestingModule,
         HttpClientModule,
