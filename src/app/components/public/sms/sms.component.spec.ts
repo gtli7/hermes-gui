@@ -6,6 +6,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoadingComponent } from '../../utils/loading/loading.component';
 import { HintComponent } from '../../utils/hint/hint.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 describe('SMSComponent', () => {
   let component: SMSComponent;
@@ -18,7 +19,8 @@ describe('SMSComponent', () => {
         RouterTestingModule,
         HttpClientModule,
         ReactiveFormsModule,
-        FormsModule],
+        FormsModule,
+        Ng2SearchPipeModule],
       schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();
