@@ -52,9 +52,9 @@
             "namedChunks": true,
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json",
-            "allowedCommonJsDependencies":[
-              "rxjs/internal/Subject", 
-              "polylabel", 
+            "allowedCommonJsDependencies": [
+              "rxjs/internal/Subject",
+              "polylabel",
               "recordrtc"
             ]
           },
@@ -270,11 +270,21 @@
               "devServerTarget": "hermes:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "defaultCollection": "@angular-eslint/schematics"
   }
 }

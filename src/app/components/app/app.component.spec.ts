@@ -3,6 +3,19 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { Idle } from '@ng-idle/core';
+import { Component } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+
+@Component({
+  template: ''
+})
+class MockLanguagesComponent { }
+
+@Component({
+  template: ''
+})
+class MockHomeComponent { }
 
 describe('AppComponent', () => {
 
@@ -12,12 +25,31 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          { path: 'languages', component: MockLanguagesComponent },
+          { path: 'home', component: MockHomeComponent }
+        ]),
         HttpClientModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        MockLanguagesComponent,
+        MockHomeComponent
       ],
+      providers: [
+        { provide: Idle, useValue: { 
+          watch: () => {}, 
+          stop: () => {},
+          setIdle: () => {},
+          setTimeout: () => {},
+          setInterrupts: () => {},
+          onIdleEnd: { subscribe: () => ({ unsubscribe: () => {} }) },
+          onTimeout: { subscribe: () => ({ unsubscribe: () => {} }) },
+          onIdleStart: { subscribe: () => ({ unsubscribe: () => {} }) },
+          onTimeoutWarning: { subscribe: () => ({ unsubscribe: () => {} }) }
+        } }
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
 
 

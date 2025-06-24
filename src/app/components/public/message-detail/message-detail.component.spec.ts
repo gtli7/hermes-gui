@@ -3,6 +3,7 @@ import { MessageDetailComponent } from './message-detail.component';
 import { Message } from '../../../interfaces/message';
 import { RouterTestingModule } from "@angular/router/testing";
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from '../../utils/loading/loading.component';
 
 describe('MessageDetailComponent', () => {
   let component: MessageDetailComponent;
@@ -10,7 +11,7 @@ describe('MessageDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MessageDetailComponent],
+      declarations: [MessageDetailComponent, LoadingComponent],
       imports: [
         RouterTestingModule,
         HttpClientModule

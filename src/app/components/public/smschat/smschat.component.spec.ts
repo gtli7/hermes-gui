@@ -3,6 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SMSChatComponent } from './smschat.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 describe('SMSChatComponent', () => {
   let component: SMSChatComponent;
@@ -10,7 +12,7 @@ describe('SMSChatComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SMSChatComponent],
+      declarations: [SMSChatComponent, LoadingComponent, HintComponent],
       imports: [
         RouterTestingModule,
         HttpClientModule,
