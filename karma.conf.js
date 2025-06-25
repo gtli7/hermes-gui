@@ -28,7 +28,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadlessNoSandbox'],
+    browsers: ['FirefoxHeadless'],
     browserDisconnectTimeout: 20000,
     browserDisconnectTolerance: 3,
     browserNoActivityTimeout: 120000,
@@ -36,8 +36,18 @@ module.exports = function (config) {
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        binary: '/tmp/chrome-launcher/chrome-wrapper.sh',
-        flags: []
+        binary: '/opt/.devin/chrome/chrome/linux-137.0.7118.2/chrome-linux64/chrome',
+        flags: [
+          '--no-sandbox',
+          '--disable-gpu',
+          '--disable-dev-shm-usage',
+          '--disable-web-security',
+          '--disable-extensions'
+        ]
+      },
+      FirefoxHeadless: {
+        base: 'Firefox',
+        flags: ['-headless']
       }
     },
     singleRun: true,
