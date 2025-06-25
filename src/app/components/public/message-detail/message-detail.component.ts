@@ -1,21 +1,26 @@
 import { Component, OnInit, Input, Renderer2 } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, NgForm } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Message } from '../../../interfaces/message';
 import { MessageService } from '../../../_services/message.service';
 import { GlobalConstants } from '../../../global-constants';
-import { NgForm } from '@angular/forms';
 import { User } from '../../../interfaces/user';
 import { ApiService } from '../../../_services/api.service';
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { UtilsService } from 'src/app/_services/utils.service';
 import { StationService } from 'src/app/_services/station.service';
 import { Station } from 'src/app/interfaces/station';
+import { LoadingComponent } from '../../utils/loading/loading.component';
 // import { ScriptService } from '../../../_services/script.service';
 
 @Component({
   selector: 'app-message-detail',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule, LoadingComponent],
   templateUrl: './message-detail.component.html',
   styleUrls: ['./message-detail.component.less']
 })

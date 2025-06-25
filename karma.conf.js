@@ -36,8 +36,14 @@ module.exports = function (config) {
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        binary: '/tmp/chrome-launcher/chrome-wrapper.sh',
-        flags: []
+        binary: '/opt/.devin/chrome/chrome/linux-137.0.7118.2/chrome-linux64/chrome',
+        flags: [
+          '--no-sandbox',
+          '--disable-gpu',
+          '--disable-dev-shm-usage',
+          '--disable-web-security',
+          '--remote-debugging-port=9222'
+        ]
       }
     },
     singleRun: true,

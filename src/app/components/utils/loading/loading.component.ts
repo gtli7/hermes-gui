@@ -1,7 +1,10 @@
 import { Component, Input, OnChanges } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'loading',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.less']
 })

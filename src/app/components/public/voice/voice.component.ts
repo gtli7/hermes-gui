@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core'
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { User } from '../../../interfaces/user'
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { RadioService } from 'src/app/_services/radio.service';
@@ -6,9 +8,12 @@ import { BehaviorSubject } from 'rxjs';
 import { SharedService } from 'src/app/_services/shared.service';
 import { Radio } from 'src/app/interfaces/radio';
 import { NgForm } from '@angular/forms';
+import { LoadingComponent } from '../../utils/loading/loading.component';
 
 @Component({
   selector: 'voice',
+  standalone: true,
+  imports: [CommonModule, FormsModule, LoadingComponent],
   templateUrl: './voice.component.html',
   styleUrls: ['./voice.component.less']
 })

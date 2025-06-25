@@ -1,10 +1,13 @@
 import { Component, OnChanges, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 import { User } from 'src/app/interfaces/user';
 import { GlobalConstants } from 'src/app/global-constants';
 
 @Component({
   selector: 'hint',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './hint.component.html',
   styleUrls: ['./hint.component.less']
 })

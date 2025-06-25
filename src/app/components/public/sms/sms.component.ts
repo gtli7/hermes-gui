@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core'
+import { CommonModule } from '@angular/common';
+import { FormsModule, NgForm } from '@angular/forms';
+import { RouterModule, Router } from '@angular/router';
 import { User } from '../../../interfaces/user'
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { UtilsService } from 'src/app/_services/utils.service';
 import { SMSMessageService } from 'src/app/_services/smsmessage.service';
 import { SMSMessage } from 'src/app/interfaces/smsmessage';
-import { NgForm } from '@angular/forms';
 import { GlobalConstants } from '../../../global-constants';
-import { Router } from '@angular/router';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 @Component({
   selector: 'sms',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule, LoadingComponent, HintComponent],
   templateUrl: './sms.component.html',
   styleUrls: ['./sms.component.less']
 })

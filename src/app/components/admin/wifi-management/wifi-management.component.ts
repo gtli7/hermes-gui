@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core'
-import { NgForm } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormsModule, NgForm } from '@angular/forms';
 import { ApiService } from 'src/app/_services/api.service';
 import { User } from '../../../interfaces/user'
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { WifiManagerService } from '../../../_services/wifi-manager.service';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 @Component({
   selector: 'wifi-manager',
+  standalone: true,
+  imports: [CommonModule, FormsModule, LoadingComponent, HintComponent],
   templateUrl: './wifi-management.component.html',
   styleUrls: ['./wifi-management.component.less']
 })

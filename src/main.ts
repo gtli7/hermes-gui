@@ -1,5 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { AppComponent } from './app/components/app/app.component';
 import { importProvidersFrom } from '@angular/core';
 import { AppModule } from './app/app.module';
@@ -11,7 +11,7 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideExperimentalZonelessChangeDetection(),
+    provideZonelessChangeDetection(),
     importProvidersFrom(AppModule)
   ]
 }).catch(err => console.error(err));

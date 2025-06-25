@@ -1,7 +1,10 @@
 import { Component, Input, OnChanges } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'progressbar',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './progressbar.component.html',
   styleUrls: ['./progressbar.component.less']
 })

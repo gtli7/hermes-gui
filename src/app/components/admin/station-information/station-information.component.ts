@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Frequency } from 'src/app/interfaces/frequency';
 import { FrequencyService } from 'src/app/_services/frequency.service';
 import { StationService } from 'src/app/_services/station.service';
@@ -6,9 +8,13 @@ import { ApiService } from '../../../_services/api.service';
 import { GlobalConstants } from '../../../global-constants';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 import { User } from 'src/app/interfaces/user';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 @Component({
   selector: 'app-station-information',
+  standalone: true,
+  imports: [CommonModule, FormsModule, LoadingComponent, HintComponent],
   templateUrl: './station-information.component.html',
   styleUrls: ['./station-information.component.less']
 })

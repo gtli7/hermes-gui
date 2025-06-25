@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../_services/authentication.service';
-import { NgForm } from '@angular/forms';
 import { GlobalConstants } from 'src/app/global-constants';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
+  imports: [CommonModule, FormsModule, HintComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.less']
 })

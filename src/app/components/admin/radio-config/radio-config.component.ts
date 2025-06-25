@@ -1,4 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { RadioService } from '../../../_services/radio.service';
 import { Form, NgForm } from '@angular/forms';
 import { DecimalPipe } from '@angular/common';
@@ -9,9 +12,13 @@ import { ApiService } from 'src/app/_services/api.service';
 import { SharedService } from 'src/app/_services/shared.service';
 import { UtilsService } from 'src/app/_services/utils.service';
 import { Router } from '@angular/router';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 @Component({
   selector: 'app-radio-config',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule, LoadingComponent, HintComponent],
   templateUrl: './radio-config.component.html',
   styleUrls: ['./radio-config.component.less'],
   providers: [DecimalPipe]

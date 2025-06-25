@@ -1,13 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { User } from '../../../interfaces/user';
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { ApiService } from '../../../_services/api.service';
 import { StationService } from '../../../_services/station.service';
 import { NgForm } from '@angular/forms';
 import { SharedService } from 'src/app/_services/shared.service';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 @Component({
   selector: 'app-schedule',
+  standalone: true,
+  imports: [CommonModule, FormsModule, LoadingComponent, HintComponent],
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.less']
 })

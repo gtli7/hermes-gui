@@ -1,7 +1,11 @@
 import { Component, OnChanges, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'switch',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.less']
 })
@@ -25,7 +29,12 @@ export class SwitchComponent implements OnChanges {
 
   onSwitch() {
     try {
-      eval(this.customFunction)
+      if (typeof this.customFunction === 'function') {
+        this.customFunction();
+      } else if (typeof this.customFunction === 'string') {
+        const func = new Function('return ' + this.customFunction);
+        func();
+      }
     } catch (error) {
       console.log(error)
     }

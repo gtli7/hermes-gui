@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Message } from '../../../interfaces/message';
 import { User } from '../../../interfaces/user';
 import { AuthenticationService } from '../../../_services/authentication.service';
@@ -7,9 +9,13 @@ import { ApiService } from '../../../_services/api.service';
 import { UntypedFormGroup } from '@angular/forms';
 import { GlobalConstants } from '../../../global-constants';
 import { HttpClient } from '@angular/common/http';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 @Component({
   selector: 'app-message-config',
+  standalone: true,
+  imports: [CommonModule, FormsModule, LoadingComponent, HintComponent],
   templateUrl: './message-config.component.html',
   styleUrls: ['./message-config.component.less']
 })

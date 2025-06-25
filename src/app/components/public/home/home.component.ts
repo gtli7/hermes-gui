@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
@@ -12,6 +14,8 @@ import { WebsocketService } from 'src/app/_services/websocket.service';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.less']
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormsModule, NgForm } from '@angular/forms';
 import { User } from '../../../interfaces/user';
 import { UserService } from '../../../_services/user.service';
 import { Station } from '../../../interfaces/station';
@@ -7,9 +8,13 @@ import { StationService } from '../../../_services/station.service';
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { ApiService } from '../../../_services/api.service';
 import { GlobalConstants } from '../../../global-constants';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 @Component({
   selector: 'app-management',
+  standalone: true,
+  imports: [CommonModule, FormsModule, LoadingComponent, HintComponent],
   templateUrl: './user-management.component.html',
   styleUrls: ['./user-management.component.less']
 })

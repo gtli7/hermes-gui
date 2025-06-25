@@ -1,8 +1,11 @@
 import { Component, OnChanges, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { GlobalConstants } from 'src/app/global-constants';
 
 @Component({
   selector: 'breadcrumb',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.less']
 })

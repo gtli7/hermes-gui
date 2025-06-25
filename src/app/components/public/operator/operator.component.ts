@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 import { User } from 'src/app/interfaces/user';
 import { SharedService } from 'src/app/_services/shared.service';
@@ -7,10 +8,15 @@ import { GPSService } from 'src/app/_services/gps.service';
 import { UUCPService } from 'src/app/_services/uucp.service';
 import { GlobalConstants } from 'src/app/global-constants';
 import { UtilsService } from 'src/app/_services/utils.service';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
+import { ProgressBarComponent } from '../../utils/progressbar/progressbar.component';
 
 
 @Component({
   selector: 'operator',
+  standalone: true,
+  imports: [CommonModule, LoadingComponent, HintComponent, ProgressBarComponent],
   templateUrl: './operator.component.html',
   styleUrls: ['./operator.component.less']
 })
