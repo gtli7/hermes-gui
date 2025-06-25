@@ -1,4 +1,6 @@
 import { Component, OnInit, HostListener, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
 import { DecimalPipe, Location } from '@angular/common';
 import { AuthenticationService } from '../../_services/authentication.service';
@@ -11,10 +13,15 @@ import { GlobalConstants } from 'src/app/global-constants';
 import { DarkModeService } from 'angular-dark-mode';
 import { SharedService } from 'src/app/_services/shared.service';
 import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
+import { BreadcrumbComponent } from '../utils/breadcrumb/breadcrumb.component';
+import { FloatButtonComponent } from '../utils/floatbutton/floatbutton.component';
+import { LoadingComponent } from '../utils/loading/loading.component';
 // import { Keepalive } from '@ng-idle/keepalive';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterModule, BreadcrumbComponent, FloatButtonComponent, LoadingComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
   providers: [DecimalPipe,

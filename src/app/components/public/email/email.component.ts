@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { User } from '../../../interfaces/user';
 import { UserService } from '../../../_services/user.service';
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { ApiService } from '../../../_services/api.service';
 import { GlobalConstants } from 'src/app/global-constants';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 @Component({
   selector: 'app-email',
+  standalone: true,
+  imports: [CommonModule, FormsModule, HintComponent],
   templateUrl: './email.component.html',
   styleUrls: ['./email.component.less']
 })

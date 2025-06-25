@@ -1,15 +1,21 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { User } from '../../../interfaces/user';
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { GPSService } from '../../../_services/gps.service';
 import { GlobalConstants } from 'src/app/global-constants';
 import { NgForm } from '@angular/forms';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 import { Subscription, interval } from 'rxjs';
 // import { PolylineSeries } from '@amcharts/amcharts5/.internal/charts/stock/drawing/PolylineSeries';
 
 @Component({
   selector: 'gps',
+  standalone: true,
+  imports: [CommonModule, FormsModule, LoadingComponent, HintComponent],
   templateUrl: './gps.component.html',
   styleUrls: ['./gps.component.less']
 })

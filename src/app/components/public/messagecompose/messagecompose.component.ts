@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { Message } from '../../../interfaces/message';
 import { MessageService } from '../../../_services/message.service';
 import { Station } from '../../../interfaces/station';
@@ -12,8 +14,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Frequency } from 'src/app/interfaces/frequency';
 import { GlobalConstants } from '../../../global-constants';
 import { UtilsService } from 'src/app/_services/utils.service';
+import { LoadingComponent } from '../../utils/loading/loading.component';
 @Component({
   selector: 'app-messagecompose',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule, LoadingComponent],
   templateUrl: './messagecompose.component.html',
   styleUrls: ['./messagecompose.component.less']
 })

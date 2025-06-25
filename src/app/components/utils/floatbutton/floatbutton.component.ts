@@ -1,9 +1,13 @@
 import { Component, OnChanges, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ApiService } from 'src/app/_services/api.service';
 import { GlobalConstants } from 'src/app/global-constants';
+import { LoadingComponent } from '../loading/loading.component';
 
 @Component({
   selector: 'floatbutton',
+  standalone: true,
+  imports: [CommonModule, LoadingComponent],
   templateUrl: './floatbutton.component.html',
   styleUrls: ['./floatbutton.component.less']
 })

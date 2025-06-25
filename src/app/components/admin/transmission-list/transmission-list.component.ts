@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Message } from '../../../interfaces/message';
 import { UUCPQueue } from '../../../interfaces/uucpqueue';
 import { User } from '../../../interfaces/user';
@@ -7,9 +9,13 @@ import { UUCPService } from '../../../_services/uucp.service';
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { Station } from 'src/app/interfaces/station';
 import { StationService } from 'src/app/_services/station.service';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 @Component({
   selector: 'app-transmission-list',
+  standalone: true,
+  imports: [CommonModule, FormsModule, LoadingComponent, HintComponent],
   templateUrl: './transmission-list.component.html',
   styleUrls: ['./transmission-list.component.less']
 })

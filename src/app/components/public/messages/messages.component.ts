@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { Message } from '../../../interfaces/message';
 import { MessageService } from '../../../_services/message.service';
 import { AlertService } from '../../../_services/alert.service';
@@ -8,9 +11,13 @@ import { ApiService } from '../../../_services/api.service';
 import { UtilsService } from 'src/app/_services/utils.service';
 import { Station } from 'src/app/interfaces/station';
 import { StationService } from 'src/app/_services/station.service';
+import { HintComponent } from '../../utils/hint/hint.component';
+import { LoadingComponent } from '../../utils/loading/loading.component';
 
 @Component({
   selector: 'app-messages',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule, HintComponent, LoadingComponent],
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.less']
 })

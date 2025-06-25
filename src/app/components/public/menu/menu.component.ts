@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core'
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { User } from '../../../interfaces/user'
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { Router } from '@angular/router';
@@ -7,9 +10,12 @@ import { Radio } from 'src/app/interfaces/radio';
 import { WebsocketService } from 'src/app/_services/websocket.service';
 import { GlobalConstants } from 'src/app/global-constants';
 import { UtilsService } from 'src/app/_services/utils.service';
+import { LoadingComponent } from '../../utils/loading/loading.component';
 
 @Component({
   selector: 'menu',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule, LoadingComponent],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.less']
 })

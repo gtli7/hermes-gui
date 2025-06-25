@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core'
-import { ActivatedRoute, Router } from '@angular/router'
+import { CommonModule } from '@angular/common';
+import { FormsModule, NgForm } from '@angular/forms';
+import { RouterModule, ActivatedRoute, Router } from '@angular/router'
 import { User } from '../../../interfaces/user'
 import { AuthenticationService } from '../../../_services/authentication.service'
 import { UtilsService } from 'src/app/_services/utils.service'
 import { SMSMessageService } from 'src/app/_services/smsmessage.service'
 import { SMSMessage } from 'src/app/interfaces/smsmessage'
-import { NgForm } from '@angular/forms'
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 @Component({
   selector: 'smschat',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule, LoadingComponent, HintComponent],
   templateUrl: './smschat.component.html',
   styleUrls: ['./smschat.component.less']
 })

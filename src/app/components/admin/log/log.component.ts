@@ -1,10 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { User } from '../../../interfaces/user';
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { ApiService } from '../../../_services/api.service';
 import { CustomErrorsService } from '../../../_services/custom-errors.service';
 import { CustomError } from '../../../interfaces/customerror'
 import { UtilsService } from 'src/app/_services/utils.service';
+import { LoadingComponent } from '../../utils/loading/loading.component';
+import { HintComponent } from '../../utils/hint/hint.component';
 
 export interface LogList {
   line: string;
@@ -13,6 +17,8 @@ export interface LogList {
 
 @Component({
   selector: 'app-log',
+  standalone: true,
+  imports: [CommonModule, FormsModule, LoadingComponent, HintComponent],
   templateUrl: './log.component.html',
   styleUrls: ['./log.component.less']
 })
