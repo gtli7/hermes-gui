@@ -1,5 +1,6 @@
 // This file is required by karma.conf.js and loads recursively all the .spec and framework files
 
+import 'zone.js';  // Required for Zone.js core functionality
 import 'zone.js/testing';  // Required for test environment compatibility
 import { getTestBed } from '@angular/core/testing';
 import {
