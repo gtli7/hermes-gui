@@ -1,6 +1,6 @@
 // This file is required by karma.conf.js and loads recursively all the .spec and framework files
 
-// import 'zone.js/testing';  // Removed for zoneless change detection
+import 'zone.js/testing';  // Required for test environment compatibility
 import { getTestBed } from '@angular/core/testing';
 import {
   BrowserDynamicTestingModule,
