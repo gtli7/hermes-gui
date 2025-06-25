@@ -39,8 +39,13 @@ module.exports = function (config) {
         binary: '/home/ubuntu/.local/bin/google-chrome',
         flags: [
           '--no-sandbox',
+          '--disable-web-security',
+          '--disable-features=VizDisplayCompositor',
           '--disable-gpu',
-          '--disable-dev-shm-usage'
+          '--disable-dev-shm-usage',
+          '--disable-background-timer-throttling',
+          '--disable-backgrounding-occluded-windows',
+          '--disable-renderer-backgrounding'
         ]
       }
     },
