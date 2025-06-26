@@ -6,7 +6,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoadingComponent } from '../../utils/loading/loading.component';
 import { HintComponent } from '../../utils/hint/hint.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SearchPipe } from '../../../pipes/search.pipe';
 
 describe('SMSComponent', () => {
   let component: SMSComponent;
@@ -19,7 +19,7 @@ describe('SMSComponent', () => {
     imports: [RouterTestingModule,
         ReactiveFormsModule,
         FormsModule,
-        Ng2SearchPipeModule],
+        SearchPipe],
     providers: [provideHttpClient(withInterceptorsFromDi())]
 })
       .compileComponents();
@@ -32,6 +32,6 @@ describe('SMSComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 });

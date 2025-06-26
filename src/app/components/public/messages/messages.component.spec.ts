@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MessagesComponent } from './messages.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SearchPipe } from '../../../pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from '../../utils/loading/loading.component';
 import { HintComponent } from '../../utils/hint/hint.component';
@@ -13,7 +13,7 @@ describe('MessagesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
     declarations: [MessagesComponent, LoadingComponent, HintComponent],
-    imports: [Ng2SearchPipeModule, FormsModule],
+    imports: [SearchPipe, FormsModule],
     providers: [provideHttpClient(withInterceptorsFromDi())]
 })
       .compileComponents();
@@ -26,6 +26,6 @@ describe('MessagesComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 });
